@@ -69,3 +69,75 @@ This entity is mapped to the `books` table in the PostgreSQL database and establ
 ### Entity Relationship
 
 The relationship between `Author` and `Book` is defined as many-to-one, where an author can have multiple books, but each book is associated with a single author. This relationship is crucial for managing the data cohesively and ensuring integrity across operations.
+
+### Data in Json Format
+
+#### A collection of Authors
+```
+[
+    {
+        "id": 52,
+        "name": "Fred the author",
+        "age": 14
+    },
+    {
+        "id": 53,
+        "name": "Tim the author",
+        "age": 45
+    }
+]
+```
+
+
+#### A paginated collection of Books
+```
+{
+    "content": [
+        {
+            "isbn": "978-1-2345-6789-4",
+            "title": "The shadow in the Attic4",
+            "author": {
+                "id": 52,
+                "name": "Fred the author",
+                "age": 14
+            }
+        },
+        {
+            "isbn": "978-1-2345-6789-2",
+            "title": "The shadow in the Sun",
+            "author": {
+                "id": 53,
+                "name": "Tim the author",
+                "age": 45
+            }
+        }
+    ],
+    "pageable": {
+        "sort": {
+            "empty": true,
+            "sorted": false,
+            "unsorted": true
+        },
+        "offset": 0,
+        "pageNumber": 0,
+        "pageSize": 20,
+        "paged": true,
+        "unpaged": false
+    },
+    "last": true,
+    "totalPages": 1,
+    "totalElements": 2,
+    "sort": {
+        "empty": true,
+        "sorted": false,
+        "unsorted": true
+    },
+    "number": 0,
+    "first": true,
+    "size": 20,
+    "numberOfElements": 2,
+    "empty": false
+}
+
+
+```
